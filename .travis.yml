@@ -1,0 +1,8 @@
+dist: bionic
+
+sudo: required
+
+language: shell
+
+services: 
+  - docker
