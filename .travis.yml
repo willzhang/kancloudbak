@@ -30,5 +30,5 @@ install:
 
 script:
   - docker run --rm -v $PWD/secrets:/app/secrets:ro -v ${CLONE_DIR}:/bak/:rw d0whc3r/gdrive -b /bak/*.bz2 -z kancloud_bak_`date '+%Y%m%d%H%M%S'`.zip -f kancloudbak -c -r
-  - docker run --rm -v $PWD/secrets:/app/secrets:ro d0whc3r/gdrive -d kancloudbak=2d -d monthly=1M
+  - docker run --rm -v $PWD/secrets:/app/secrets:ro d0whc3r/gdrive -d kancloudbak=1M
 
