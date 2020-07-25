@@ -24,7 +24,7 @@ install:
     for repo in $repos
     do
       echo [$icount/$count]: $repos
-      git clone https://${KANCLOUD_USER}:${KANCLOUD_PASS}@git.kancloud.cn/${KANCLOUD_USER}/${repo}.git ${PWD}/kancloud/
+      git clone https://${KANCLOUD_USER}:${KANCLOUD_PASS}@git.kancloud.cn/${KANCLOUD_USER}/${repo}.git ${PWD}/${repos}
       ((icount++))
     done
 
