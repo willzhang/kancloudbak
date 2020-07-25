@@ -29,5 +29,5 @@ install:
     done
 
 after_script:
-  - docker run --rm -v $PWD/secrets:/app/secrets:ro gdrive -b ${PWD}/kancloud/* -z kancloud_bak.zip -f kancloud-c -r
-  - docker run --rm -v $PWD/secrets:/app/secrets:ro gdrive -d kancloud=2d -d monthly=1M
+  - docker run --rm -v $PWD/secrets:/app/secrets:ro d0whc3r/gdrive gdrive -b ${PWD}/kancloud/* -z kancloud_bak.zip -f kancloud-c -r
+  - docker run --rm -v $PWD/secrets:/app/secrets:ro d0whc3r/gdrive gdrive -d kancloud=2d -d monthly=1M
