@@ -25,4 +25,4 @@ install:
       ((icount++))
     done
 script:
-  - docker run --rm -v $PWD/secrets:/config/rclone -v ${PWD}/bak:/bak -w /bak rclone/rclone rclone sync "/bak/*" gcloud_drive:/kancloudbak/
+  - docker run --rm -v $PWD/secrets:/config/rclone -v ${PWD}/bak:/bak -w /bak rclone/rclone sync "/bak/*" gcloud_drive:/kancloudbak/
