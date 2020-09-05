@@ -10,7 +10,7 @@ services:
 env:
   global:
     - KANCLOUD_USER=willseecloud
-	- CLONE_DIR=${PWD}/bak
+    - CLONE_DIR=${PWD}/bak
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_32f56afb6050_key -iv $encrypted_32f56afb6050_iv -in rclone/rclone.conf.enc -out rclone/rclone.conf -d
@@ -23,7 +23,7 @@ install:
     do
       echo [$icount/$count]: $repo
       git clone https://${KANCLOUD_USER}:${KANCLOUD_PASS}@git.kancloud.cn/${KANCLOUD_USER}/${repo}.git ${CLONE_DIR}/${repo}
-	    tar -jcf ${CLONE_DIR}/${repo}.tar.bz2 -C ${CLONE_DIR}/${repo} .
+      tar -jcf ${CLONE_DIR}/${repo}.tar.bz2 -C ${CLONE_DIR}/${repo} .
       ((icount++))
     done
 script:
