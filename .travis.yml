@@ -27,4 +27,4 @@ install:
       ((icount++))
     done
 script:
-  - docker run --rm -v $PWD/rclone:/config/rclone/ -v ${CLONE_DIR}:/data:shared rclone/rclone copy . gcloud_drive:/kancloudbak -v
+  - docker run --rm -v $PWD/rclone:/config/rclone/ -v ${CLONE_DIR}:/data:shared rclone/rclone copy "*.bz2" gcloud_drive:/kancloudbak -v
