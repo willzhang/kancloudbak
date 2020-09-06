@@ -26,6 +26,6 @@ install:
       ((icount++))
     done
     mkdir ${PWD}/bak
-    tar -jcf ${PWD}/bak/kancloud_bak_`date '+%Y%m%d%H%M%S'`.tar.bz2 -C ${PWD}/clone .
+    tar -jcf ${PWD}/bak/kancloud_bak.tar.bz2 -C ${PWD}/clone .
 script:
   - docker run --rm -v $PWD/rclone:/config/rclone/ -v ${PWD}/bak:/data:shared rclone/rclone copy /data/ gcloud_drive:/kancloudbak -v
