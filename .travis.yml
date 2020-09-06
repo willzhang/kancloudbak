@@ -22,9 +22,10 @@ install:
     for repo in `cat repo.list`
     do
       echo [$icount/$count]: $repo
-      git clone https://${KANCLOUD_USER}:${KANCLOUD_PASS}@git.kancloud.cn/${KANCLOUD_USER}/${repo}.git ${CLONE_DIR}/${repo}
+      git clone https://${KANCLOUD_USER}:${KANCLOUD_PASS}@git.kancloud.cn/${KANCLOUD_USER}/${repo}.git ${PWD}/clone
       ((icount++))
     done
-    tar -jcf kancloud_bak_`date '+%Y%m%d%H%M%S'`.tar.bz2 -C ${CLONE_DIR} .
+    mkdir ${PWD}/bak
+    tar -jcf ${PWD}/bak/kancloud_bak_`date '+%Y%m%d%H%M%S'`.tar.bz2 -C ${PWD}/clone .
 script:
-  - docker run --rm -v $PWD/rclone:/config/rclone/ -v ${PWD}:/data:shared rclone/rclone copy "/data/*.bz2" gcloud_drive:/kancloudbak -v
+  - docker run --rm -v $PWD/rclone:/config/rclone/ -v ${PWD}/bak:/data:shared rclone/rclone copy /data/ gcloud_drive:/kancloudbak -v
